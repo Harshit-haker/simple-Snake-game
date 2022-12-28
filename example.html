@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>My Cartoon Game</title>
+  </head>
+  <body>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+    <script>
+      // Get the canvas element
+      const canvas = document.getElementById("gameCanvas");
+      // Get the canvas context
+      const ctx = canvas.getContext("2d");
+
+      // Load the sprite sheet image
+      const spriteSheet = new Image();
+      spriteSheet.src = "sprites.png";
+
+      // Define the player's position and size
+      let playerX = 50;
+      let playerY = 50;
+      const playerWidth = 50;
+      const playerHeight = 50;
+
+      // Define the enemy's position and size
+      let enemyX = 300;
+      let enemyY = 300;
+      const enemyWidth = 50;
+      const enemyHeight = 50;
+
+      function draw() {
+        // Clear the canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Draw the player
+        ctx.drawImage(spriteSheet, 0, 0, playerWidth, playerHeight, playerX, playerY, playerWidth, playerHeight);
+
+        // Draw the enemy
+        ctx.drawImage(spriteSheet, 50, 0, enemyWidth, enemyHeight, enemyX, enemyY, enemyWidth, enemyHeight);
+      }
+
+      // Call the draw function every 10 milliseconds
+      setInterval(draw, 10);
+    </script>
+  </body>
+</html>
